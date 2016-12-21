@@ -14,4 +14,10 @@ dev-git-init(){
 	git init 		
 }
 
+dev-open(){
+	xdg-open ./
+}
+
+
+
 
