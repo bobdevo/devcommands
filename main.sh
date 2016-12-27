@@ -37,4 +37,9 @@ dev-projects(){
 	ls -l
 }
 
-
+dev-log(){
+	case $1 in 
+		"apache")
+			tail -f /var/log/apache2/error.log	
+	esac	
+}
