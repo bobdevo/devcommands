@@ -43,3 +43,11 @@ dev-log(){
 			tail -f /var/log/apache2/error.log	
 	esac	
 }
+dev-note(){
+	echo "$1" >> ./log
+	cat ./log
+}
+
+dev-git-files(){
+    git whatchanged --name-only --pretty="" origin..HEAD
+}
