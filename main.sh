@@ -51,3 +51,7 @@ dev-note(){
 dev-git-files(){
     git whatchanged --name-only --pretty="" origin..HEAD
 }
+
+dev-vpn(){
+/opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli connect --server $1:$2 --vpnuser $3 -- 
+}
