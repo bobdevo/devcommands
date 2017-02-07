@@ -27,14 +27,9 @@ dev-open(){
 
 dev-tmux(){
 	tmux new-session -d  
-	tmux split-window -v 'top'
-	tmux split-window -h 	
-	tmux -2 attach -d 
-}
-
-dev-projects(){
-	cd ~/projects
-	ls -l
+    tmux split-window -v 'top'  	
+	tmux split-window -h
+    tmux -2 attach -d 
 }
 
 dev-log(){
@@ -53,5 +48,9 @@ dev-git-files(){
 }
 
 dev-vpn(){
-/opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli connect --server $1:$2 --vpnuser $3 -- 
+    /opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli connect --server $1:$2 --vpnuser $3 --;
+}
+
+dev-project(){
+    subl --command "close_project"; subl --project ~/subl-project/$1.sublime-project
 }
