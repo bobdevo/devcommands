@@ -27,8 +27,12 @@ dev-open(){
 
 dev-tmux(){
 	tmux new-session -d  
-    tmux split-window -v 'top'  	
-	tmux split-window -h
+    tmux split-window -v 'top'
+    tmux split-window -h 
+    tmux resize-pane -L 17
+    tmux split-window -h 
+    tmux resize-pane -L 8
+    tmux split-window -h
     tmux -2 attach -d 
 }
 
