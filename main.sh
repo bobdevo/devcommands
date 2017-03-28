@@ -1,11 +1,15 @@
 #!/bin/bash
 
-
+dev-vpn-status(){
+	tail -f /opt/forticlient-sslvpn/64bit/helper/forticlientsslvpn.log
+}
 
 dev(){
 	eval "dev-$1"		
 }
-
+dev-not(){
+	notify-send $1 
+}
 dev-mkcd(){
 	mkdir -p -- "$1" &&
 	cd -P -- "$1"
