@@ -46,7 +46,9 @@ dtmux(){
     tmux split-window -v
     tmux -2 attach -d 
 }
-
+dtheme(){
+    /opt/oomox/gui.sh 
+}  
 dlog(){
 	case $1 in 
 		"apache")
@@ -74,7 +76,12 @@ dpull(){
 dpush(){
     git push origin $1
 }
-
+dcom(){
+    git commit -m "$1"
+}
+dstat(){
+    git status
+}
 dproject(){
     subl --command "close_project"; subl --project ~/subl-project/$1.sublime-project
 }
