@@ -1,35 +1,39 @@
 #!/bin/bash
 
-dvpn-status(){
+dev-vpn-status(){
 	tail -f /opt/forticlient-sslvpn/64bit/helper/forticlientsslvpn.log
 }
 
-d(){
-	eval "dev-$1"		
+dev-mssh(){
+    sshfs $1@$2:/$3 $4
 }
-dnot(){
+
+dev-(){
+	eval "$1"		
+}
+dev-not(){
 	notify-send $1 
 }
-dmkcd(){
+dev-mkcd(){
 	mkdir -p -- "$1" &&
 	cd -P -- "$1"
 }
 
-dhosts(){
+dev-hosts(){
 	sudo vim /etc/hosts
 }
 
-dgitinit(){
+dev-gitinit(){
 	mkdir -p -- "$1" &&
 	cd -P -- "$1" &&
 	git init 		
 }
 
-dopen(){
+dev-open(){
 	xdg-open ./
 }
 
-dtmux(){
+dev-tmux(){
 	tmux new-session -d  
     tmux split-window -h
     tmux split-window -v 'alsamixer'
@@ -46,42 +50,42 @@ dtmux(){
     tmux split-window -v
     tmux -2 attach -d 
 }
-dtheme(){
+dev-theme(){
     /opt/oomox/gui.sh 
 }  
-dlog(){
+dev-log(){
 	case $1 in 
 		"apache")
 			tail -f /var/log/apache2/error.log	
 	esac	
 }
-dnote(){
+dev-note(){
 	echo "$1" >> ./log
 	cat ./log
 }
 
-dgitfiles(){
+dev-gitfiles(){
     git whatchanged --name-only --pretty="" origin..HEAD
 }
 
-dvpn(){
+dev-vpn(){
     /opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli connect --server $1:$2 --vpnuser $3 --;
 }
 
-dpull(){
+dev-pull(){
     git pull origin $1
 
 }
 
-dpush(){
+dev-push(){
     git push origin $1
 }
-dcom(){
+dev-com(){
     git commit -m "$1"
 }
-dstat(){
+dev-stat(){
     git status
 }
-dproject(){
+dev-project(){
     subl --command "close_project"; subl --project ~/subl-project/$1.sublime-project
 }
