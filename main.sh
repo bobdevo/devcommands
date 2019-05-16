@@ -33,6 +33,10 @@ dev-open(){
 	xdg-open ./
 }
 
+dev-php-s(){
+	php -S localhost:8181
+}
+
 dev-tmux(){
 	tmux new-session -d  
     tmux split-window -h
