@@ -83,7 +83,7 @@ dpull(){
 
 dpush(){
     git push origin $1
-}`
+}
 dcom(){
     git commit -m "$1"
 }
