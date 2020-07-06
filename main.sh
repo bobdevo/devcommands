@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dvpn-status(){
-	tail -f /opt/forticlient-sslvpn/64bit/helper/forticlientsslvpn.log
+  tail -f /opt/forticlient-sslvpn/64bit/helper/forticlientsslvpn.log
 }
 
 dmssh(){
@@ -9,64 +9,64 @@ dmssh(){
 }
 
 dhtml(){
-	echo "Do you really know what you're doing? (y) or (n)."
-	read choice
-	echo    # (optional) move to a new line
-	if [[ $choice =~ ^[Yy]$ ]]
-	then
-	    # do dangerous stuff
+  echo "Do you really know what you're doing? (y) or (n)."
+  read choice
+  echo    # (optional) move to a new line
+  if [[ $choice =~ ^[Yy]$ ]]
+  then
+      # do dangerous stuff
 
-	    mkdir ./css
-	    mkdir ./images
-	    mkdir ./javascript
-	    mkdir ./partials
-	    mkdir ./fonts
-	    mkdir ./pages
-	    mkdir ./layout
-	    touch ./css/style.css
-	    touch ./javascript/script.js
-	    touch ./index.php
-	    touch ./partials/head.php
-	    touch ./partials/header.php
-	    touch ./partials/footer.php
-	    touch ./layout/default.php
-	    touch ./pages/home.php
-  	  	# touch ./pages/_contact.php
-  	fi
+      mkdir ./css
+      mkdir ./images
+      mkdir ./javascript
+      mkdir ./partials
+      mkdir ./fonts
+      mkdir ./pages
+      mkdir ./layout
+      touch ./css/style.css
+      touch ./javascript/script.js
+      touch ./index.php
+      touch ./partials/head.php
+      touch ./partials/header.php
+      touch ./partials/footer.php
+      touch ./layout/default.php
+      touch ./pages/home.php
+        # touch ./pages/_contact.php
+    fi
 
 }
 
 d(){
-	eval "$1"
+  eval "$1"
 }
 dnot(){
-	notify-send $1
+  notify-send $1
 }
 dmkcd(){
-	mkdir -p -- "$1" &&
-	cd -P -- "$1"
+  mkdir -p -- "$1" &&
+  cd -P -- "$1"
 }
 
 dhosts(){
-	sudo vim /etc/hosts
+  sudo vim /etc/hosts
 }
 
 dgitinit(){
-	mkdir -p -- "$1" &&
-	cd -P -- "$1" &&
-	git init
+  mkdir -p -- "$1" &&
+  cd -P -- "$1" &&
+  git init
 }
 
 dopen(){
-	xdg-open ./
+  xdg-open ./
 }
 
 dphp-s(){
-	php -S localhost:8181
+  php -S localhost:8181
 }
 
 dtmux(){
-	tmux new-session -d
+  tmux new-session -d
     tmux split-window -h
     tmux split-window -v 'alsamixer'
     tmux split-window -h
@@ -86,14 +86,14 @@ dtheme(){
     /opt/oomox/gui.sh
 }
 dlog(){
-	case $1 in
-		"apache")
-			tail -f /var/log/apache2/error.log
-	esac
+  case $1 in
+    "apache")
+      tail -f /var/log/apache2/error.log
+  esac
 }
 dnote(){
-	echo "$1" >> ./log
-	cat ./log
+  echo "$1" >> ./log
+  cat ./log
 }
 
 dgitfiles(){
@@ -106,7 +106,6 @@ dvpn(){
 
 dpull(){
     git pull origin $1
-
 }
 
 dpush(){
@@ -115,23 +114,10 @@ dpush(){
 dcom(){
     git commit -m "$1"
 }
-dstat(){
+ds(){
     git status
 }
-dproject(){
 
+my_dir="$(dirname "$0")"
 
-
-    if test ! -d ~/subl-project
-    then
-        mkdir ~/subl-project
-    fi
-
-    if test ! -d ~/subl-project/$1.sublime-project
-    then
-        echo "{}" > ~/subl-project/$1.sublime-project
-    else
-        subl --command "close_project"; subl --project ~/subl-project/$1.sublime-project
-    fi
-
-}
+"$my_dir/others.sh"
